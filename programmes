@@ -68,7 +68,7 @@ public static void main(String[] args) {
 
 
 
-############################################### LINKED LIST ###########################################################
+############################################### LINKED LIST INSERTION AT BEG ###########################################################
 
 
 public class LinkedList {
@@ -112,4 +112,63 @@ public class LinkedList {
     }
 }
 
-#############################################################################################################################3
+############################################### LINKED LIST INSERTION AT END ###########################################################
+import java.util.Scanner;
+
+class LinkedList {
+    class Node {
+        int data;
+        Node next;
+
+        Node(int val) {
+            data = val;
+            next = null;
+        }
+    }
+
+    Node head;
+
+    public LinkedList() {
+        head = null;
+    }
+
+    public void insertAtEnd(int val) {
+        Node newNode = new Node(val);
+        if (head == null) {
+            head = newNode;
+        } else {
+            Node temp = head;
+            while (temp.next != null) {
+                temp = temp.next;
+            }
+            temp.next = newNode;
+        }
+    }
+
+    public void printList() {
+        Node temp = head;
+        while (temp != null) {
+            System.out.print(temp.data + " -> ");
+            temp = temp.next;
+        }
+        System.out.println("null");
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        LinkedList list = new LinkedList();
+
+        int n = scanner.nextInt();
+        for (int i = 0; i < n; i++) {
+            int val = scanner.nextInt();
+            list.insertAtEnd(val);
+        }
+
+        list.printList();
+        scanner.close();
+    }
+}
+
+############################################### LINKED LIST  ###########################################################
