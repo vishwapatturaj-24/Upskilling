@@ -171,4 +171,70 @@ public class Main {
     }
 }
 
-############################################### LINKED LIST  ###########################################################
+############################################### LINKED LIST HW ###########################################################
+
+class LinkedList {
+    class Node {
+        int data;
+        Node next;
+
+        Node(int val) {
+            data = val;
+            next = null;
+        }
+    }
+
+    Node head;
+
+    public void insertAtEnd(int val) {
+        Node newNode = new Node(val);
+        if (head == null) {
+            head = newNode;
+        } else {
+            Node temp = head;
+            while (temp.next != null) {
+                temp = temp.next;
+            }
+            temp.next = newNode;
+        }
+    }
+
+    public boolean isPalindrome() {
+        String original = "";
+        Node temp = head;
+        while (temp != null) {
+            original += temp.data;
+            temp = temp.next;
+        }
+
+        String reversed = new StringBuilder(original).reverse().toString();
+
+        return original.equals(reversed);
+    }
+
+    public void printList() {
+        Node temp = head;
+        while (temp != null) {
+            System.out.print(temp.data + " -> ");
+            temp = temp.next;
+        }
+        System.out.println("null");
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+        LinkedList list = new LinkedList();
+
+        list.insertAtEnd(1);
+        list.insertAtEnd(2);
+        list.insertAtEnd(3);
+        list.insertAtEnd(2);
+        list.insertAtEnd(1);
+
+        System.out.println( list.isPalindrome());
+    }
+}
+
+
+################################################################################################################################
